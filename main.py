@@ -3,9 +3,9 @@ import random
 
 
 def congratulate_user():
-    print("=============================")
+
     print(f"Congratulations, you won! your words: {guesses}")
-    print("=============================")
+
 
 def is_game_over():
     return guessed == WORDS_TO_WIN or errors == ERRORS_TO_LOSE
@@ -35,8 +35,8 @@ words = words_fetcher.fetch_words(min_letters=9, max_letters=9)
 full_list = words_fetcher.fetch_words(min_letters=3, max_letters=9)
 word = words[random.randrange(0, len(words))]
 
-print(f"Can you make up {WORDS_TO_WIN} words from letters in word provided by me?")
-print(f"Your word is '{word}'")
+print(WORDS_TO_WIN)
+print(word)
 
 
 while not is_game_over():
@@ -51,9 +51,9 @@ while not is_game_over():
         if guessed == WORDS_TO_WIN:
             congratulate_user()
             exit()
-        print(f"That's right! {WORDS_TO_WIN - guessed} to go")
+        print(WORDS_TO_WIN - guessed)
     else:
         errors += 1
-        print(f"Oops :( No such word, you have {ERRORS_TO_LOSE - errors} lives more")
+        print(ERRORS_TO_LOSE - errors)
         if errors==ERRORS_TO_LOSE:
             print("Loose")
